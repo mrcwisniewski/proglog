@@ -15,6 +15,10 @@ type Record struct {
 	Offset uint64 `json:"offset"`
 }
 
+func NewLog() *Log {
+	return &Log{}
+}
+
 var ErrOffsetNotFounc = fmt.Errorf("offset not found")
 
 func (c *Log) Append(record Record) (uint64, error) {
