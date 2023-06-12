@@ -8,7 +8,7 @@ import (
 )
 
 type httpServer struct {
-	Log *log
+	Log *Log
 }
 
 func NewHTTPServer(addr string) *http.Server {
