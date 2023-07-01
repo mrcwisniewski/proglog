@@ -23,15 +23,15 @@ type store struct {
 }
 
 func newStore(f *os.File) (*store, error) {
-	fi, err := os.Stat(f.Neme())
+	fi, err := os.Stat(f.Name())
 	if err != nil {
 		return nil, err
 	}
-	size := uint64(fi, Size())
+	size := uint64(fi.Size())
 	return &store{
 		File: f,
 		size: size,
-		buf:  bufio.NewWriter(),
+		buf:  bufio.NewWriter(f),
 	}, nil
 }
 
